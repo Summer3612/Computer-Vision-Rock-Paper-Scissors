@@ -1,5 +1,6 @@
 import random
 
+
 game=['rock','paper','scissors']
 
 def get_computer_choice():
@@ -39,4 +40,3 @@ def play ():
     get_winner(computer_choice, user_choice)
 
  
-play()
