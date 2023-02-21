@@ -7,8 +7,7 @@ import numpy as np
 import time
 
 class RockPaperScissors():
-    def __init__(self): 
-
+    def __init__(self):
         self.game=['rock','paper','scissors']
         print ("Please look at the camara and play rock, paper or scissors")
         print ("You need to win 3 times before the computer to win this game! ")
@@ -17,7 +16,6 @@ class RockPaperScissors():
         return random.choice(self.game)
 
     def get_user_choice(self):
-        
         self.get_prediction()
         choice = ''
     
@@ -42,8 +40,7 @@ class RockPaperScissors():
         start = time.time()
         timer = int(4)
 
-        while timer >= 0: 
-            
+        while timer >= 0:  
             ret, frame = cap.read()
             resized_frame = cv2.resize(frame, (224, 224), interpolation = cv2.INTER_AREA)
             image_np = np.array(resized_frame)
@@ -69,7 +66,6 @@ class RockPaperScissors():
             cv2.imshow('frame', frame)
             # Press q to close the window
             
-            
             self.result = np.where(prediction[0]==np.amax(prediction[0]))[0][0]
                 
             if cv2.waitKey(1) & 0xFF == ord('q'):
@@ -81,8 +77,6 @@ class RockPaperScissors():
         cv2.destroyAllWindows() 
 
         return self.result
-
-    
 
     def get_winner(self, computer_choice, user_choice):
 
@@ -139,10 +133,6 @@ class RockPaperScissors():
             elif computer_chance==3:
                 print ('Computer has won! Good luck next time!') 
                 exit()
-
-
-game = RockPaperScissors()
-game.play()
                 
 # def start_video(self):
 #     while True: 
@@ -204,6 +194,10 @@ game.play()
     #     self.data[0] = normalized_image
     #     self.prediction = self.model.predict(self.data)
     #     self.get_prediction()
+
+if __name__ == '__main__':
+    game = RockPaperScissors()
+    game.play()
 
 
         

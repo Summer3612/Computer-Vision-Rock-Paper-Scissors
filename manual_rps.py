@@ -1,6 +1,5 @@
 import random
 
-
 game=['rock','paper','scissors']
 
 def get_computer_choice():
