@@ -11,6 +11,7 @@ class RockPaperScissors():
         self.game=['rock','paper','scissors']
         print ("Please look at the camara and play rock, paper or scissors")
         print ("You need to win 3 times before the computer to win this game! ")
+        time.sleep(2)
 
     def get_computer_choice(self):
         return random.choice(self.game)
@@ -64,13 +65,11 @@ class RockPaperScissors():
             print(prediction)
   
             cv2.imshow('frame', frame)
-            # Press q to close the window
-            
+        
             self.result = np.where(prediction[0]==np.amax(prediction[0]))[0][0]
-                
+            # Press q to close the window    
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
-
         # After the loop release the cap object
         cap.release()
         # Destroy all the windows
@@ -118,22 +117,32 @@ class RockPaperScissors():
                 print (f'Computer chooses {computer_choice}')
                 print(f'User wins {user_chance}')
                 print(f'Computer wins {computer_chance}')
+
             else: 
                 print(f'You select {user_choice}')
                 print (f'Computer chooses {computer_choice}')
                 print ("It is a draw, keep playing!")
                 print(f'User wins {user_chance}')
                 print(f'Computer wins {computer_chance}')
-                   
+            
+            time.sleep(3)
+
         else: 
             if user_chance==3:
                 print('User has won! Congrats!')
+                time.sleep(1)
                 # check this out 
                 exit()
             elif computer_chance==3:
                 print ('Computer has won! Good luck next time!') 
+                time.sleep(1)
                 exit()
-                
+
+if __name__ == '__main__':
+    game = RockPaperScissors()
+    game.play()
+
+
 # def start_video(self):
 #     while True: 
 #         ret, frame = self.cap.read()
@@ -195,9 +204,7 @@ class RockPaperScissors():
     #     self.prediction = self.model.predict(self.data)
     #     self.get_prediction()
 
-if __name__ == '__main__':
-    game = RockPaperScissors()
-    game.play()
+
 
 
         
